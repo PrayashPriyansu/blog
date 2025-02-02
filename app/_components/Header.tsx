@@ -1,18 +1,17 @@
-import { Sun, Terminal } from "lucide-react";
+import MainNav from "@/app/_components/MainNav";
+import ExLinksNav from "@/app/_components/ExLinksNav";
+import ThemeToggle from "@/app/_components/ThemeToggle";
 
 function Header() {
   return (
-    <div className="text-white h-10 w-full flex bg-header gap-1 items-center px-2 py-1">
-      <div className="items-center flex">
-        <Terminal size={20} />
-        <span className="font-semibold">Prayash</span>
-      </div>
+    <header className="sticky top-0 border-b border-border h-14 w-full max-w-screen-2xl  flex bg-background/95 backdrop:blur supports-[backdop-fliter]:bg-background/60 gap-4 items-center px-8 py-1">
+      <MainNav />
       <div className="grow"></div>
-      <div className="flex gap-3 items-center">
-        <span className="text-sm ">About</span>
-        <Sun className="stroke-1" />
+      <div className="flex gap-4 items-center">
+        <ExLinksNav />
       </div>
-    </div>
+      <ThemeToggle />
+    </header>
   );
 }
 export default Header;

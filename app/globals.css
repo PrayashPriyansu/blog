@@ -9,7 +9,7 @@
 
   --color-surface: 230, 230, 225; /* Subtle warm gray for cards & surfaces */
   --color-primary: 150, 42, 42; /* Muted deep red for accents (traditional Japanese feel) */
-  --color-border: 200, 200, 190; /* Light grayish border like newspaper columns */
+  --color-border: 185, 178, 170; /* Light grayish border like newspaper columns */
 }
 
 .dark {

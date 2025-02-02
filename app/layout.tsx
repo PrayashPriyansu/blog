@@ -16,16 +16,22 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const theme: string = "light";
+
   return (
     <html lang="en">
       <body
         className={cn(
-          "min-h-screen text-foreground  bg-background light font-sans antialiased",
-          inter.className
+          "min-h-screen text-foreground  bg-background relative  font-sans antialiased",
+          inter.className,
+          { light: theme === "light" },
+          { dark: theme === "dark" }
         )}
       >
-        <Header />
-        {children}
+        <div className="min-h-dvh flex-col relative flex bg-background">
+          <Header />
+          <div className="px-8">{children}</div>
+        </div>
       </body>
     </html>
   );
