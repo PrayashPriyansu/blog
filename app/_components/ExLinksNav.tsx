@@ -4,7 +4,7 @@ import { siteConfig } from "@/config/site";
 
 function ExLinksNav() {
   return (
-    <nav className="flex gap-4 items-center">
+    <nav className="hidden sm:flex gap-4 items-center">
       <Link
         href={siteConfig.links.twitter}
         className="hover:bg-slate-200 hover:text-black rounded-lg px-2 py-2 transition-colors"

@@ -21,3 +21,51 @@
   --color-primary: 180, 55, 55; /* Slightly more vibrant red for contrast */
   --color-border: 70, 70, 70; /* Subtle dark gray border */
 }
+
+.hamburger {
+  position: fixed;
+  right: 0px;
+  margin: 20px;
+  z-index: 2;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #455ce9;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hamburger {
+  width: 100%;
+  &::after,
+  &::before {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 40%;
+    margin: auto;
+    background-color: white;
+    position: relative;
+    transition: transform 0.3s;
+  }
+
+  &::after {
+    top: -5px;
+  }
+
+  &::before {
+    top: 5px;
+  }
+}
+
+.hamburgeractive ::after {
+  transform: rotate(45deg);
+  top: -1px;
+}
+
+.hamburgeractive::before {
+  transform: rotate(-45deg);
+  top: 0px;
+}
