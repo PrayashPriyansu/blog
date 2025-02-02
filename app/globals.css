@@ -2,20 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.light {
+  --color-background: 205, 198, 190; /* Soft off-white, like aged newspaper */
+  --color-foreground: 30, 30, 30; /* Dark ink-like text */
+  --color-header: 20, 20, 20; /* Deep black for headlines */
+
+  --color-surface: 230, 230, 225; /* Subtle warm gray for cards & surfaces */
+  --color-primary: 150, 42, 42; /* Muted deep red for accents (traditional Japanese feel) */
+  --color-border: 200, 200, 190; /* Light grayish border like newspaper columns */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+.dark {
+  --color-background: 25, 25, 25; /* Deep charcoal for dark mode */
+  --color-foreground: 220, 220, 220; /* Soft grayish-white for text */
+  --color-header: 235, 235, 235; /* Bright white for headlines */
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  --color-surface: 40, 40, 40; /* Dark gray for card backgrounds */
+  --color-primary: 180, 55, 55; /* Slightly more vibrant red for contrast */
+  --color-border: 70, 70, 70; /* Subtle dark gray border */
 }

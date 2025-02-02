@@ -8,9 +8,19 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["var(--font-inter)"],
+      },
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        background: "rgba(var(--color-background))" /* Background color */,
+        foreground: "rgba(var(--color-foreground))" /* Text color */,
+
+        header: "rgba(var(--color-header))",
+
+        surface: "rgba(var(--color-surface))" /* Section or card background */,
+        primary:
+          "rgba(var(--color-primary))" /* Primary action color (buttons) */,
+        border: "rgba(var(--color-border))" /* Border color */,
       },
     },
   },
