@@ -3,7 +3,7 @@
 import { cn } from "@/utils";
 
 import { Terminal } from "lucide-react";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import { usePathname } from "next/navigation";
 
 function MainNav() {

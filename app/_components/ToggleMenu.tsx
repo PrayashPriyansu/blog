@@ -12,8 +12,13 @@ function ToggleMenu() {
 
   return (
     <>
-      <button className="h-1.5" onClick={handleClick}>
-        <MenuIcon isOpen={isOpen} />
+      <button
+        className="hover:bg-slate-200 hover:text-black rounded-lg sm:hidden transition-colors "
+        onClick={handleClick}
+      >
+        <div className="h-1.5 pt-0.5">
+          <MenuIcon isOpen={isOpen} />
+        </div>
       </button>
       <MobileMenu onClick={handleClick} isOpen={isOpen} />
     </>

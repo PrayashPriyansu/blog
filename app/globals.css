@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 .light {
-  --color-background: 205, 198, 190; /* Soft off-white, like aged newspaper */
+  --color-background: 237, 244, 250; /* Soft off-white, like aged newspaper */
   --color-foreground: 30, 30, 30; /* Dark ink-like text */
   --color-header: 20, 20, 20; /* Deep black for headlines */
 
-  --color-surface: 230, 230, 225; /* Subtle warm gray for cards & surfaces */
+  --color-surface: 250, 250, 250; /* Subtle warm gray for cards & surfaces  */
   --color-primary: 150, 42, 42; /* Muted deep red for accents (traditional Japanese feel) */
   --color-border: 185, 178, 170; /* Light grayish border like newspaper columns */
 }
@@ -22,50 +22,7 @@
   --color-border: 70, 70, 70; /* Subtle dark gray border */
 }
 
-.hamburger {
-  position: fixed;
-  right: 0px;
-  margin: 20px;
-  z-index: 2;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background-color: #455ce9;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+/* #FAFAFA
 
-.hamburger {
-  width: 100%;
-  &::after,
-  &::before {
-    content: "";
-    display: block;
-    height: 1px;
-    width: 40%;
-    margin: auto;
-    background-color: white;
-    position: relative;
-    transition: transform 0.3s;
-  }
 
-  &::after {
-    top: -5px;
-  }
-
-  &::before {
-    top: 5px;
-  }
-}
-
-.hamburgeractive ::after {
-  transform: rotate(45deg);
-  top: -1px;
-}
-
-.hamburgeractive::before {
-  transform: rotate(-45deg);
-  top: 0px;
-}
+205, 198, 190 */

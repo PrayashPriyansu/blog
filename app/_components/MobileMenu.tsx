@@ -11,8 +11,12 @@ function MobileMenu({ isOpen, onClick }: props) {
     <div className="fixed top-14 right-0 w-full z-50">
       {/* Overlay (Background Blur) */}
       <div
+        onClick={(e) => {
+          e.stopPropagation();
+          onClick();
+        }}
         className={cn(
-          "fixed inset-0  bg-background/95 backdrop:blur supports-[backdop-fliter]:bg-background/60 top-14 backdrop-blur-sm transition-all duration-300 ease-in-out",
+          "fixed inset-0  bg-black/95 backdrop:blur dark:bg-white/20 supports-[backdop-fliter]:bg-black/60 top-14 backdrop-blur-sm transition-all duration-300 ease-in-out",
           isOpen
             ? "opacity-70 pointer-events-auto"
             : "opacity-0 pointer-events-none"

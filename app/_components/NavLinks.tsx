@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 
 const navlinks = [
   { content: "Home", path: "/" },
@@ -14,7 +14,7 @@ function NavLinks({ onClick }: props) {
     <ul className="h-full w-full flex flex-col gap-4 items-center mt-10">
       {navlinks.map((item, i) => (
         <li key={i}>
-          <Link onClick={onClick} href={item.path}>
+          <Link onClick={onClick} className="text-2xl" href={item.path}>
             {item.content}
           </Link>
         </li>
