@@ -1,5 +1,6 @@
-import { Link } from "next-view-transitions";
-import { ComponentPropsWithoutRef } from "react";
+import Link from "next/link";
+import React, { ComponentPropsWithoutRef } from "react";
+
 import { highlight } from "sugar-high";
 
 type HeadingProps = ComponentPropsWithoutRef<"h1">;
@@ -9,7 +10,7 @@ type ListItemProps = ComponentPropsWithoutRef<"li">;
 type AnchorProps = ComponentPropsWithoutRef<"a">;
 type BlockquoteProps = ComponentPropsWithoutRef<"blockquote">;
 
-export const components = {
+const components = {
   h1: (props: HeadingProps) => (
     <h1 className="font-medium pt-12 mb-0 fade-in" {...props} />
   ),
@@ -108,4 +109,12 @@ export const components = {
   ),
 };
 
-export type ComponentsType = typeof components;
+declare global {
+  type MDXProvidedComponents = typeof components;
+}
+
+export function useMDXComponents(
+  otherComponents: MDXProvidedComponents
+): MDXProvidedComponents {
+  return { ...components, ...otherComponents };
+}
