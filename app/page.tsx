@@ -6,7 +6,7 @@ import image5 from "@/public/flowers-8564948_1920.png";
 import image6 from "@/public/dog-8262506.jpg";
 import image7 from "@/public/pexels-jonathanborba-29276547.jpg";
 import Image from "next/image";
-import { Link } from "next-view-transitions";
+import AnimatedLink from "@/app/_components/AimatedLink";
 import { Link2 } from "lucide-react";
 
 export default function Home() {
@@ -66,10 +66,10 @@ export default function Home() {
           <div className="py-1 px-2 w-1/2">
             <div className="flex items-center justify-between">
               <h1 className="text-lg font-semibold">F1</h1>
-              <Link href={"/blog/1"} className="flex items-center">
+              <AnimatedLink href={"/blog/1"} className="flex items-center">
                 <span className="text-xs">More</span>
                 <Link2 size={10} />
-              </Link>
+              </AnimatedLink>
             </div>
             <span className="text-xs">
               F1 racing is the pinnacle of speed and precision, where the

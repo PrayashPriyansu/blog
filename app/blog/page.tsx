@@ -1,4 +1,5 @@
-import { Link } from "next-view-transitions";
+import AnimatedLink from "@/app/_components/AimatedLink";
+
 import { getBlogPosts } from "../_lib/blogs";
 
 async function Page() {
@@ -9,7 +10,7 @@ async function Page() {
       <ul>
         {posts.map((post, i) => (
           <li key={i}>
-            <Link href={post.slug}>{post.title}</Link>
+            <AnimatedLink href={post.slug}>{post.title}</AnimatedLink>
           </li>
         ))}
       </ul>

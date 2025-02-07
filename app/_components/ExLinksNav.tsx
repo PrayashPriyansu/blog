@@ -1,29 +1,29 @@
-import { Link } from "next-view-transitions";
+import AnimatedLink from "@/app/_components/AimatedLink";
 import { Icons } from "./Icons";
 import { siteConfig } from "@/config/site";
 
-function ExLinksNav() {
+function ExAnimatedLinksNav() {
   return (
     <nav className="hidden sm:flex gap-4 items-center">
-      <Link
-        href={siteConfig.links.twitter}
+      <AnimatedLink
+        href={siteConfig.AnimatedLinks.twitter}
         className="hover:bg-slate-200 hover:text-black rounded-lg px-2 py-2 transition-colors"
         target="_blank"
         rel="noreferrer"
       >
         <Icons.twitter className="size-4" />
         <span className="sr-only">T</span>
-      </Link>
-      <Link
+      </AnimatedLink>
+      <AnimatedLink
         className="hover:bg-slate-200 hover:text-black rounded-lg px-2 py-2 transition-colors"
-        href={siteConfig.links.github}
+        href={siteConfig.AnimatedLinks.github}
         target="_blank"
         rel="noreferrer"
       >
         <Icons.gitHub className="size-4" />
         <span className="sr-only">Github</span>
-      </Link>
+      </AnimatedLink>
     </nav>
   );
 }
-export default ExLinksNav;
+export default ExAnimatedLinksNav;

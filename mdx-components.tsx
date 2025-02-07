@@ -1,4 +1,4 @@
-import Link from "next/link";
+import AnimatedLink from "@/app/_components/AimatedLink";
 import React, { ComponentPropsWithoutRef } from "react";
 
 import { highlight } from "sugar-high";
@@ -53,9 +53,9 @@ const components = {
     const className = "text-blue-500 hover:text-blue-700";
     if (href?.startsWith("/")) {
       return (
-        <Link href={href} className={className} {...props}>
+        <AnimatedLink href={href} className={className} {...props}>
           {children}
-        </Link>
+        </AnimatedLink>
       );
     }
     if (href?.startsWith("#")) {
