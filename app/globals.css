@@ -51,3 +51,9 @@ body {
   transform: translateY(0) scale(1);
   filter: blur(0);
 }
+
+@layer base {
+  .nav-item {
+    @apply px-4 py-1.5 rounded-full text-black dark:text-black/70 text-sm font-semibold hover:bg-black/10 hover:text-white transition duration-300;
+  }
+}

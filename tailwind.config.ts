@@ -11,7 +11,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-inter)"],
+        sans: "var(--font-sans)",
+        serif: "var(--font-serif)",
       },
       colors: {
         background: "rgba(var(--color-background))" /* Background color */,
@@ -22,7 +23,15 @@ export default {
         surface: "rgba(var(--color-surface))" /* Section or card background */,
         primary:
           "rgba(var(--color-primary))" /* Primary action color (buttons) */,
-        border: "rgba(var(--color-border))" /* Border color */,
+        border: "rgba(var(--color-border))",
+
+        bentoWhite: "rgb(224, 225, 215)",
+        bentoSWhite: "rgb(245, 239, 232)",
+        bentoGreen: "rgb(2,77,67)",
+        bentoRed: "rgb(212,3,3)",
+        bentoPink: "rgb(246, 93, 72)",
+        bentoBlue: "rgb(8, 5, 52)",
+        bentoLightBlue: "rgb(74,61,227)",
       },
     },
   },
