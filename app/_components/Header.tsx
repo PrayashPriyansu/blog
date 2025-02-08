@@ -1,3 +1,5 @@
+"use client";
+
 import MainNav from "@/app/_components/MainNav";
 import ExLinksNav from "@/app/_components/ExLinksNav";
 import ThemeToggle from "@/app/_components/ThemeToggle";
