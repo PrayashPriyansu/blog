@@ -31,7 +31,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "min-h-screen bg-background  relative font-sans  antialiased",
+          "min-h-screen bg-background  relative dark font-sans  antialiased",
           montserrat.variable,
           calistoga.variable,
           orbitron.variable,

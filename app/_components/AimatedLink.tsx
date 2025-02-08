@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 
 import { ReactNode } from "react";
 
-interface LinkProps extends LinkProps {
+interface Props extends LinkProps {
   children: ReactNode;
   href: string;
   className?: string;
@@ -12,13 +12,13 @@ interface LinkProps extends LinkProps {
   rel?: string;
 }
 
-function Link({
+function AnimeLink({
   children,
   href,
   target = "_self",
   rel = "",
   ...props
-}: LinkProps) {
+}: Props) {
   const router = useRouter();
 
   function sleep(ms: number) {
@@ -66,4 +66,4 @@ function Link({
   );
 }
 
-export default Link;
+export default AnimeLink;
