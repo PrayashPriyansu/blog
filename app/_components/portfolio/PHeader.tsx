@@ -1,29 +1,24 @@
-import { cn } from "@/utils";
 import Link from "next/link";
 
 function PHeader() {
   return (
-    <div className="flex justify-center items-center fixed w-full top-3">
-      <nav className="flex gap-1 p-0.5 border bg-black/50 backdrop-blur dark:bg-white/50 border-black/15 rounded-full">
+    <div className="z-50 fixed top-3 w-full flex justify-center items-center">
+      <nav className="flex justify-center items-center gap-2 border border-gray-300 bg-white/90 backdrop-blur-md shadow-lg rounded-full">
         <a href="#" className="nav-item">
           Home
         </a>
-        <a href="#" className="nav-item ">
+        <a href="#" className="nav-item">
           Projects
         </a>
-        <Link href="/blog" className="nav-item ">
+        <Link href="/blog" className="nav-item">
           Blogs
         </Link>
-        <a
-          href="#"
-          className={cn(
-            "nav-item bg-white text-black hover:bg-white/70 hover:text-black "
-          )}
-        >
+        <a href="#" className="nav-item ">
           Contact
         </a>
       </nav>
     </div>
   );
 }
+
 export default PHeader;

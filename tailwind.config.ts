@@ -13,6 +13,7 @@ export default {
       fontFamily: {
         sans: "var(--font-sans)",
         serif: "var(--font-serif)",
+        orbi: "var(--font-orbi)",
       },
       colors: {
         background: "rgba(var(--color-background))" /* Background color */,

@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { cn } from "@/utils";
-import { Montserrat, Calistoga } from "next/font/google";
+import { Montserrat, Calistoga, Russo_One } from "next/font/google";
 
 const montserrat = Montserrat({ subsets: ["latin"], variable: "--font-sans" });
+const orbitron = Russo_One({
+  subsets: ["latin"],
+  variable: "--font-orbi",
+  weight: "400",
+});
 const calistoga = Calistoga({
   subsets: ["latin"],
   variable: "--font-serif",
@@ -26,9 +31,10 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "min-h-screen bg-background relative font-sans dark antialiased",
+          "min-h-screen bg-background  relative font-sans  antialiased",
           montserrat.variable,
           calistoga.variable,
+          orbitron.variable,
           { light: theme === "light" },
           { dark: theme === "dark" }
         )}
