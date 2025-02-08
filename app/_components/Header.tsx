@@ -1,5 +1,5 @@
 import MainNav from "@/app/_components/MainNav";
-import ExAnimatedLinksNav from "@/app/_components/ExLinksNav";
+import ExLinksNav from "@/app/_components/ExLinksNav";
 import ThemeToggle from "@/app/_components/ThemeToggle";
 import ToggleMenu from "@/app/_components/ToggleMenu";
 
@@ -9,7 +9,7 @@ function Header() {
       <MainNav />
       <div className="grow"></div>
       <div className="flex gap-4 items-center">
-        <ExAnimatedLinksNav />
+        <ExLinksNav />
       </div>
       <ThemeToggle />
       <ToggleMenu />

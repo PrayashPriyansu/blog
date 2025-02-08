@@ -1,4 +1,4 @@
-import AnimatedLink from "@/app/_components/AimatedLink";
+import Link from "next/link";
 
 import { getBlogPosts } from "../_lib/blogs";
 
@@ -10,7 +10,7 @@ async function Page() {
       <ul>
         {posts.map((post, i) => (
           <li key={i}>
-            <AnimatedLink href={post.slug}>{post.title}</AnimatedLink>
+            <Link href={`blog/${post.slug}`}>{post.title}</Link>
           </li>
         ))}
       </ul>

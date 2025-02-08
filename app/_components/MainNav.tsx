@@ -3,7 +3,7 @@
 import { cn } from "@/utils";
 
 import { Terminal } from "lucide-react";
-import AnimatedLink from "@/app/_components/AimatedLink";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 function MainNav() {
@@ -11,11 +11,11 @@ function MainNav() {
 
   return (
     <nav className="flex items-center space-x-4 lg:space-x-6">
-      <AnimatedLink href={"/"} className="flex items-center gap-1 mr-6">
+      <Link href={"/"} className="flex items-center gap-1 mr-6">
         <Terminal size={20} />
         <span className="font-semibold">Prayash</span>
-      </AnimatedLink>
-      <AnimatedLink
+      </Link>
+      <Link
         href={"/blog"}
         className={cn(
           "hidden sm:flex  items-center gap-1 mr-6 transition-all",
@@ -25,8 +25,8 @@ function MainNav() {
         )}
       >
         <span className=" ">Blog</span>
-      </AnimatedLink>
-      <AnimatedLink
+      </Link>
+      <Link
         href={"/about"}
         className={cn(
           "hidden sm:flex items-center gap-1 mr-6 transition-colors",
@@ -36,7 +36,7 @@ function MainNav() {
         )}
       >
         <span className="">About</span>
-      </AnimatedLink>
+      </Link>
     </nav>
   );
 }

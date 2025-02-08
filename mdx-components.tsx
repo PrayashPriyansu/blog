@@ -1,4 +1,4 @@
-import AnimatedLink from "@/app/_components/AimatedLink";
+import Link from "next/link";
 import React, { ComponentPropsWithoutRef } from "react";
 
 import { highlight } from "sugar-high";
@@ -53,9 +53,9 @@ const components = {
     const className = "text-blue-500 hover:text-blue-700";
     if (href?.startsWith("/")) {
       return (
-        <AnimatedLink href={href} className={className} {...props}>
+        <Link href={href} className={className} {...props}>
           {children}
-        </AnimatedLink>
+        </Link>
       );
     }
     if (href?.startsWith("#")) {
@@ -103,7 +103,7 @@ const components = {
   ),
   blockquote: (props: BlockquoteProps) => (
     <blockquote
-      className="ml-[0.075em] border-l-3 border-gray-300 pl-4 text-gray-700"
+      className="ml-[0.075em] border-l-2 border-black pl-4 text-gray-700"
       {...props}
     />
   ),

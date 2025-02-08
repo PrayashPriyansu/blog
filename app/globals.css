@@ -28,13 +28,20 @@
 205, 198, 190 */
 
 body {
-  transition: opacity 300ms ease-in-out, transform 300ms ease-in-out,
-    filter 300ms ease-in-out;
+  transition-property: opacity, transform, filter;
+  transition-duration: 500ms;
+  transition-timing-function: ease-in-out;
+
+  --scrollbarBG: #cfd8dc;
+  --thumbBG: #90a4ae;
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
 }
 
 .page-transition-out {
   opacity: 0;
-  transform: translateY(10px) scale(0.98);
+  transform: translateX(10px) scale(0.98);
   filter: blur(8px);
   pointer-events: none;
 }

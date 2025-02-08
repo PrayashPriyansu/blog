@@ -1,6 +1,6 @@
-import AnimatedLink from "@/app/_components/AimatedLink";
+import Link from "next/link";
 
-const navAnimatedLinks = [
+const navLinks = [
   { content: "Home", path: "/" },
   { content: "Blog", path: "/blog" },
   { content: "About", path: "/about" },
@@ -9,17 +9,17 @@ const navAnimatedLinks = [
 type props = {
   onClick: () => void;
 };
-function NavAnimatedLinks({ onClick }: props) {
+function NavLinks({ onClick }: props) {
   return (
     <ul className="h-full w-full flex flex-col gap-4 items-center mt-10">
-      {navAnimatedLinks.map((item, i) => (
+      {navLinks.map((item, i) => (
         <li key={i}>
-          <AnimatedLink onClick={onClick} className="text-2xl" href={item.path}>
+          <Link onClick={onClick} className="text-2xl" href={item.path}>
             {item.content}
-          </AnimatedLink>
+          </Link>
         </li>
       ))}
     </ul>
   );
 }
-export default NavAnimatedLinks;
+export default NavLinks;
