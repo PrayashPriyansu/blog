@@ -20,9 +20,9 @@ function Layout({ children }: { children: ReactElement }) {
 
       {/* Blog Content Wrapper */}
       <div
-        className="mt-6 border border-zinc-800 text-black dark:text-zinc-200 rounded-lg p-2 sm:p-6 
-                bg-white dark:bg-zinc-800 shadow-md overflow-hidden max-w-full max-h-[90vh] 
-                break-words whitespace-normal"
+        className="mt-6 border border-zinc-800  text-black dark:text-zinc-200 rounded-lg p-2 sm:p-6 bg-white dark:bg-zinc-900
+      text-pretty break-words whitespace-normal
+      shadow-md"
       >
         {children}
       </div>

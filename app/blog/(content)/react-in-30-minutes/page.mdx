@@ -1,50 +1,132 @@
-# React in 30 Minutes 🚀
+# Build a React App using Vite
 
-import Image from "next/image";
+Setting up a React app with Vite is incredibly fast compared to traditional methods like Create React App (CRA). Vite offers instant Hot Module Replacement (HMR) and an optimized development experience. In this guide, you'll create a React app with Vite in just 30 minutes.
 
-# Welcome to MDX
+## Prerequisites
 
-This is a sample MDX file with various elements.
+Before starting, ensure you have the following installed:
 
-## Subheading
+- **Node.js** (LTS version recommended)
+- **npm** or **yarn** (comes with Node.js)
+- A code editor (VS Code recommended)
 
-Here's some more content in your MDX file.
+## Step 1: Create a New Vite Project
 
-- Item 1
-- Item 2
-- Item 3
+Run the following command in your terminal to create a new React app using Vite:
 
-### Code Example
-
-```javascript
-const greet = (name) => `Hello, ${name}!`;
-console.log(greet("MDX"));
+```sh
+npm create vite@latest project-name
 ```
 
-### Blockquote
+Alternatively, using yarn:
 
-> This is a blockquote example in MDX.
+```sh
+yarn create vite@latest my-vite-app --template react
+```
 
-### Table Example
+Follow the prompts and navigate into your project folder:
 
-| Name  | Age |
-| ----- | --- |
-| Alice | 25  |
-| Bob   | 30  |
+```sh
+cd my-vite-app
+```
 
-### Nested Components
+## Step 2: Install Dependencies
 
-<details>
-  <summary>Click to expand</summary>
-  <p>This is hidden content inside a details element.</p>
-</details>
+Once inside the project folder, install the necessary dependencies:
 
----
+```sh
+npm install
+```
 
-That's it for now! More MDX features can be explored further.
+Or if using yarn:
+
+```sh
+yarn install
+```
+
+## Step 3: Start the Development Server
+
+Now, run the development server:
+
+```sh
+npm run dev
+```
+
+Or using yarn:
+
+```sh
+yarn dev
+```
+
+This will start a local server, and you can open your browser at the provided URL (usually [http://localhost:5173](http://localhost:5173) ).
+
+## Step 4: Explore the Project Structure
+
+A typical Vite React project includes:
+
+```
+my-vite-app/
+├── public/          # Static assets
+├── src/             # Source code
+│   ├── App.jsx      # Main React component
+│   ├── main.jsx     # Entry point
+│   ├── index.css    # Global styles
+├── vite.config.js   # Vite configuration
+├── package.json     # Dependencies & scripts
+├── README.md        # Documentation
+```
+
+## Step 5: Modify Your First Component
+
+Open src/App.jsx and update it:
+
+```jsx
+function App() {
+  return (
+    <div>
+      <h1>Welcome to My Vite React App!</h1>
+      <p>Vite is blazing fast! 🚀</p>
+    </div>
+  );
+}
+
+export default App;
+```
+
+Save the file, and Vite will instantly update your browser with the changes.
+
+## Step 6: Build and Deploy
+
+When you're ready to deploy, build your project using:
+
+```sh
+npm run build
+```
+
+Or with yarn:
+
+```sh
+yarn build
+```
+
+This generates an optimized production-ready <ILH>dist/</ILH> folder that you can deploy to any static hosting service like Netlify, Vercel, or GitHub Pages.
+
+## Conclusion
+
+You’ve successfully created a React app using Vite in under 10 minutes! 🎉
+
+With Vite, you get fast builds, optimized performance, and a smoother developer experience compared to traditional tools.
+
+### Next Steps:
+
+- Learn about **Vite Plugins** for added functionality.
+- Explore **Tailwind CSS** integration for styling.
+- Deploy your app to **Vercel** or **Netlify**.
+
+Happy coding! 🚀
 
 export const metadata = {
-  title: "Create a react app in 30 mins",
+  title: "Create a react app using vite",
   slug: "react-in-30-minutes",
   date: "2024-02-01",
   views: 1200,
