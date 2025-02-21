@@ -18,12 +18,10 @@ export default {
       colors: {
         background: "rgba(var(--color-background))" /* Background color */,
         foreground: "rgba(var(--color-foreground))" /* Text color */,
+        card: "rgba(var(--color-card))",
+        cardBorder: "rgba(var(--color-card-border))",
 
-        header: "rgba(var(--color-header))",
-
-        surface: "rgba(var(--color-surface))" /* Section or card background */,
-        primary:
-          "rgba(var(--color-primary))" /* Primary action color (buttons) */,
+        cardText: "rgba(var(--color-card-text))",
         border: "rgba(var(--color-border))",
 
         bentoWhite: "rgb(224, 225, 215)",

@@ -1,3 +1,5 @@
+import { Search } from "lucide-react";
+
 function SearchBlogs({
   input,
   setInput,
@@ -6,13 +8,14 @@ function SearchBlogs({
   setInput: React.Dispatch<React.SetStateAction<string>>;
 }) {
   return (
-    <div className="w-full row-span-1 col-span-4">
+    <div className="relative w-full">
       <input
         onChange={(e) => setInput(e.target.value)}
         value={input}
-        placeholder="Search Blogs"
-        className="w-full rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-700"
+        placeholder="Search Blogs..."
+        className="w-full rounded-lg border border-gray-300 bg-gray-100 px-4 py-2 pl-10 text-sm focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200"
       />
+      <Search className="absolute top-1/2 left-2 -translate-y-1/2" />
     </div>
   );
 }

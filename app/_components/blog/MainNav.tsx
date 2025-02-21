@@ -12,8 +12,8 @@ function MainNav() {
   return (
     <nav className="flex items-center space-x-4 lg:space-x-6">
       <Link href={"/"} className="flex items-center gap-1 mr-6">
-        <Terminal size={20} />
-        <span className="font-semibold">Prayash</span>
+        <Terminal size={20} className="text-foreground" />
+        <span className="font-semibold text-foreground">Prayash</span>
       </Link>
       <Link
         href={"/blog"}

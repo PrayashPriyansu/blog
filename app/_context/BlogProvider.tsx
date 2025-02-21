@@ -17,7 +17,7 @@ function BlogProvider({
   children,
   value,
 }: {
-  children: ReactElement[];
+  children: ReactElement;
   value: BlogPost[];
 }) {
   return <BlogContext.Provider value={value}>{children}</BlogContext.Provider>;

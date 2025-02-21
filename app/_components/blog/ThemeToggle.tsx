@@ -28,14 +28,14 @@ function ThemeToggle() {
   return (
     <button
       onClick={() => setIsDarkMode((i) => !i)}
-      className="hover:bg-slate-200 relative hover:text-black rounded-lg px-2 py-2 transition-colors"
+      className="hover:bg-slate-200 text-foreground relative hover:text-black rounded-lg px-2 py-2 transition-colors duration-100"
     >
       <Sun
-        className="transition-all scale-100 dark:scale-0 rotate-0 dark:-rotate-90"
+        className=" scale-100 dark:scale-0 rotate-0 dark:-rotate-90"
         size={20}
       />
       <Moon
-        className="m-auto inset-0 transition-all absolute scale-0 rotate-90 dark:scale-100 dark:rotate-0"
+        className="m-auto inset-0  absolute scale-0 rotate-90 dark:scale-100 dark:rotate-0"
         size={20}
       />
       <span className="sr-only">Toggle Theme</span>

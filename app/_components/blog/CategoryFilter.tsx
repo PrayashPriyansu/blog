@@ -28,7 +28,6 @@ function CategoryFilter({
 
   return (
     <div className="text-lg row-span-2 col-span-2 font-semibold text-foreground/50 mb-2">
-      <span>Categories</span>
       <div>
         <ul className="flex flex-wrap gap-2">
           {tags.map((tag) => (

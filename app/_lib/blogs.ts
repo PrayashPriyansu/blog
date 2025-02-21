@@ -19,7 +19,7 @@ export async function getJSONData() {
 }
 
 export async function getBlogPosts() {
-  const contentDirPath = path.join(process.cwd(), "app/blog");
+  const contentDirPath = path.join(process.cwd(), "app/blog/(content)");
   const data = await fs.readdir(contentDirPath, { withFileTypes: true });
   const postDirs = data
     .filter((dir) => dir.isDirectory())
@@ -27,14 +27,21 @@ export async function getBlogPosts() {
 
   const blogs = await Promise.all(
     postDirs.map(async (postDir) => {
-      console.log(`@/app/blog/${postDir}/page.mdx`);
-
-      const { metadata } = await import(`@/app/blog/${postDir}/page.mdx`);
-      console.log(metadata);
-
-      return metadata;
+      try {
+        const { metadata } = await import(
+          `@/app/blog/(content)/${postDir}/page.mdx`
+        );
+        return {
+          ...metadata,
+          slug: postDir, // Ensure consistent slug
+        };
+      } catch (error) {
+        console.error(`Error loading blog post ${postDir}:`, error);
+        return null;
+      }
     })
   );
 
-  return blogs;
+  // Filter out any null entries and sort by date to ensure consistent order
+  return blogs.filter(Boolean);
 }

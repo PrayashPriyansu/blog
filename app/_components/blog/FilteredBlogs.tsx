@@ -15,36 +15,46 @@ function FilteredBlogs() {
   const [selectedTags, setSelectedTags] = useState<Tag[]>([]);
 
   function setTags(tag: Tag) {
-    if (selectedTags.includes(tag)) {
+    if (selectedTags.map((tag) => tag.name).includes(tag.name)) {
       setSelectedTags((i) => i.filter((t) => t.name !== tag.name));
       return;
     }
     setSelectedTags((i) => [...i, tag]);
   }
-
   const blogPosts = useBlogContext();
+  const selectedTagsName = selectedTags.map((tag) => tag.name);
 
-  const filteredBlogs = blogPosts.filter((post) => {
-    if (input === "") return true;
+  const filteredBlogs = blogPosts.filter((blog) => {
+    if (selectedTagsName.length === 0) return true;
 
-    if (selectedTags.length === 0) return true;
-    if (selectedTags.length === 1) {
-      return post.tags.includes(selectedTags[0].name);
-    }
+    return blog.tags.some((tag) => selectedTagsName.includes(tag));
+  });
 
-    return post.title.toLowerCase().includes(input.toLowerCase());
+  const searchBlogs = filteredBlogs.filter((blog) => {
+    return blog.title.includes(input);
   });
 
   return (
-    <div>
-      <div className="text-2xl font-semibold mb-4">Search Blogs</div>
-      <div className="grid grid-cols-6 grid-rows-2">
+    <div className="col-span-1">
+      <div className="text-2xl text-foreground font-semibold mb-4">
+        Search Blogs
+      </div>
+      {/* <div className="grid grid-cols-6 grid-rows-2"> */}
+      <div className="space-y-4 ">
         <CategoryFilter selectedTags={selectedTags} setSelectedTags={setTags} />
         <SearchBlogs input={input} setInput={setInput} />
-
-        {filteredBlogs.map((post) => (
-          <BlogOverviewCard key={post.slug} post={post} />
-        ))}
+        <div className="flex flex-col gap-4  rounded-xl overflow-y-auto">
+          {searchBlogs.length > 0 ? (
+            searchBlogs.map((post) => (
+              <BlogOverviewCard key={post.slug} post={post} />
+            ))
+          ) : (
+            <div className="text-center text-gray-500 py-4">
+              No results found.
+            </div>
+          )}
+        </div>
+        {/* </div> */}
       </div>
     </div>
   );
