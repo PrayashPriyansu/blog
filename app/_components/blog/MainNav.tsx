@@ -20,22 +20,22 @@ function MainNav() {
         className={cn(
           "hidden sm:flex  items-center gap-1 mr-6 transition-all",
           pathName === "/blog"
-            ? "text-foreground underline"
+            ? "text-foreground underline underline-offset-2"
             : "text-foreground/60"
         )}
       >
         <span className=" ">Blog</span>
       </Link>
       <Link
-        href={"/about"}
+        href={"/categories"}
         className={cn(
           "hidden sm:flex items-center gap-1 mr-6 transition-colors",
-          pathName === "/about"
-            ? "text-foreground underline"
+          pathName === "/categories"
+            ? "text-foreground underline underline-offset-2"
             : "text-foreground/60"
         )}
       >
-        <span className="">About</span>
+        <span className="">Categories</span>
       </Link>
     </nav>
   );

@@ -15,9 +15,11 @@ function ThemeToggle() {
   useEffect(
     function () {
       if (isDarkMode) {
+        localStorage.setItem("theme", "dark");
         document.body.classList.remove("light");
         document.body.classList.add("dark");
       } else {
+        localStorage.setItem("theme", "light");
         document.body.classList.remove("dark");
         document.body.classList.add("light");
       }

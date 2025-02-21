@@ -19,7 +19,10 @@ function BlogOverviewCard({ post }: { post: BlogPost }) {
         <p className="text-xs text-gray-500">{post.views} views</p>
       </div>
 
-      <Link href={`/blog/${post.slug}`} className="top-1 right-2  absolute">
+      <Link
+        href={`/blog/${post.slug}`}
+        className="top-1 right-2 hover:scale-105 active:scale-95 absolute"
+      >
         <ExternalLink className="stroke-1" />
       </Link>
     </div>

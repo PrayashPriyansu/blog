@@ -10,16 +10,20 @@ function Layout({ children }: { children: ReactElement }) {
     <div className="px-4 sm:mx-auto w-dvw lg:w-fit  py-6">
       {/* Back Button */}
       <button
-        className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-800 transition-all duration-200 border border-gray-300 rounded-md shadow-sm 
-        hover:bg-gray-200 hover:border-gray-400 active:scale-95"
+        className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-foreground transition-all bg-white text-black duration-200 border border-cardBorder rounded-md shadow-sm 
+        dark:bg-card dark:hover:bg-card/50 hover:scale-105  active:scale-100"
         onClick={() => router.back()}
       >
-        <ArrowLeftSquare className="w-5 h-5 stroke-1 text-gray-600" />
+        <ArrowLeftSquare className="w-5 h-5 stroke-1 " />
         Back
       </button>
 
       {/* Blog Content Wrapper */}
-      <div className="mt-6 border border-gray-300  rounded-lg p-2 sm:p-6 bg-white shadow-md">
+      <div
+        className="mt-6 border border-zinc-800 text-black dark:text-zinc-200 rounded-lg p-2 sm:p-6 
+                bg-white dark:bg-zinc-800 shadow-md overflow-hidden max-w-full max-h-[90vh] 
+                break-words whitespace-normal"
+      >
         {children}
       </div>
     </div>

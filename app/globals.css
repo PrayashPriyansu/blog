@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .light {
-  --color-background: 254, 250, 224; /* Soft off-white, like aged newspaper */
+  --color-background: 240, 240, 245; /* Soft off-white, like aged newspaper */
   --color-foreground: 30, 30, 30; /* Dark ink-like text */
 
   --color-card: 248, 250, 252;
@@ -16,9 +16,9 @@
 .dark {
   --color-background: 25, 25, 25; /* Deep charcoal for dark mode */
   --color-foreground: 220, 220, 220; /* Soft grayish-white for text */
-  --color-card: 35, 35, 35;
-  --color-card-text: 235, 235, 235;
-  --color-card-border: 55, 55, 55;
+  --color-card: 31, 31, 34;
+  --color-card-text: 228, 228, 231;
+  --color-card-border: 50, 50, 50;
 
   --color-border: 70, 70, 70; /* Subtle dark gray border */
 }
