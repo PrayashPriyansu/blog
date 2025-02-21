@@ -1,5 +1,5 @@
 import path from "path";
-import fs from "fs";
+import { promises as fs } from "fs";
 
 // function isBlogHeaderData(data: any) {
 //   return (
@@ -13,15 +13,15 @@ import fs from "fs";
 
 export async function getJSONData() {
   const filePath = path.join(process.cwd(), "public", "data.json");
-  const file = fs.readFileSync(filePath, "utf-8");
+  const file = await fs.readFile(filePath, "utf-8");
 
   return JSON.parse(file);
 }
 
 export async function getBlogPosts() {
   const contentDirPath = path.join(process.cwd(), "app/blog");
-  const postDirs = fs
-    .readdirSync(contentDirPath, { withFileTypes: true })
+  const data = await fs.readdir(contentDirPath, { withFileTypes: true });
+  const postDirs = data
     .filter((dir) => dir.isDirectory())
     .map((dir) => dir.name);
 
