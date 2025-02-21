@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .light {
-  --color-background: 237, 244, 250; /* Soft off-white, like aged newspaper */
+  --color-background: 254, 250, 224; /* Soft off-white, like aged newspaper */
   --color-foreground: 30, 30, 30; /* Dark ink-like text */
   --color-header: 20, 20, 20; /* Deep black for headlines */
 
@@ -21,11 +21,6 @@
   --color-primary: 180, 55, 55; /* Slightly more vibrant red for contrast */
   --color-border: 70, 70, 70; /* Subtle dark gray border */
 }
-
-/* #FAFAFA
-
-
-205, 198, 190 */
 
 body {
   transition-property: opacity, transform, filter;

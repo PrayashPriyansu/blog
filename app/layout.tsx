@@ -31,7 +31,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "min-h-screen bg-background  relative dark font-sans  antialiased",
+          "min-h-screen relative  font-sans  antialiased",
           montserrat.variable,
           calistoga.variable,
           orbitron.variable,
@@ -39,7 +39,7 @@ export default function RootLayout({
           { dark: theme === "dark" }
         )}
       >
-        <div className="min-h-dvh flex-col relative flex bg-background">
+        <div className="min-h-dvh flex-col relative flex ">
           {/* <Header /> */}
           <div className="flex-1">{children}</div>
         </div>

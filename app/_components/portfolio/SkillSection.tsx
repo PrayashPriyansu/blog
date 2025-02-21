@@ -1,7 +1,7 @@
 "use client";
 
 import { Monitor, Code, Terminal, Database } from "lucide-react";
-import { Icons } from "../Icons";
+import { Icons } from "../blog/Icons";
 
 function SkillsTabs() {
   // Categorized skill sets

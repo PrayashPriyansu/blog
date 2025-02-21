@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Icons } from "@/app/_components/Icons";
+import { Icons } from "@/app/_components/blog/Icons";
 import { siteConfig } from "@/config/site";
 
 function SocialsBento() {

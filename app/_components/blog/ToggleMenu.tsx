@@ -1,7 +1,7 @@
 "use client";
-import MenuIcon from "@/app/_components/MenuIcon";
+import MenuIcon from "@/app/_components/blog/MenuIcon";
 import { useState } from "react";
-import MobileMenu from "@/app/_components/MobileMenu";
+import MobileMenu from "./MobileMenu";
 
 function ToggleMenu() {
   const [isOpen, setIsOpen] = useState(false);
