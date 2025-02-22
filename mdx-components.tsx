@@ -41,7 +41,7 @@ const components = {
   ),
   ol: (props: ListProps) => (
     <ol
-      className="text-gray-800 dark:text-gray-200 list-decimal pl-6 space-y-2 break-words whitespace-pre-wrap"
+      className="text-gray-800 dark:text-gray-200 list-decimal pl-6  break-words whitespace-pre-wrap"
       {...props}
     />
   ),
@@ -108,14 +108,14 @@ const components = {
 
   ILH: ({
     children,
-    isClick,
+    isCopyable,
     isLink,
   }: {
     children: string;
-    isClick?: boolean;
+    isCopyable?: boolean;
     isLink?: boolean;
   }) => (
-    <ILH isClick={isClick} isLink={isLink}>
+    <ILH isLink={isLink} copyable={isCopyable}>
       {children}
     </ILH>
   ),

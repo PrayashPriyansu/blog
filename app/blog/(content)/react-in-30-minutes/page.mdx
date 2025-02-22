@@ -21,13 +21,13 @@ npm create vite@latest project-name
 Alternatively, using yarn:
 
 ```sh
-yarn create vite@latest my-vite-app --template react
+yarn create vite@latest project-name
 ```
 
 Follow the prompts and navigate into your project folder:
 
 ```sh
-cd my-vite-app
+cd project-name
 ```
 
 ## Step 2: Install Dependencies
@@ -58,13 +58,14 @@ Or using yarn:
 yarn dev
 ```
 
+&nbsp;
 This will start a local server, and you can open your browser at the provided URL (usually [http://localhost:5173](http://localhost:5173) ).
 
 ## Step 4: Explore the Project Structure
 
 A typical Vite React project includes:
 
-```
+```sh
 my-vite-app/
 ├── public/          # Static assets
 ├── src/             # Source code
@@ -76,7 +77,22 @@ my-vite-app/
 ├── README.md        # Documentation
 ```
 
-## Step 5: Modify Your First Component
+## Step 5: Check your Vite.config.js
+
+Open vite.config.js and check if the react plugin is installed:
+
+```js
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+
+export default defineConfig({
+  plugins: [react()],
+});
+```
+
+This should be done autmatically by the create vite command.
+
+## Step 6: Modify Your First Component
 
 Open src/App.jsx and update it:
 
@@ -95,7 +111,7 @@ export default App;
 
 Save the file, and Vite will instantly update your browser with the changes.
 
-## Step 6: Build and Deploy
+## Step 7: Build and Deploy
 
 When you're ready to deploy, build your project using:
 
@@ -119,18 +135,17 @@ With Vite, you get fast builds, optimized performance, and a smoother developer 
 
 ### Next Steps:
 
-- Learn about **Vite Plugins** for added functionality.
-- Explore **Tailwind CSS** integration for styling.
-- Deploy your app to **Vercel** or **Netlify**.
+- Learn about **[Vite Plugins](/blog/vite-plugins)** for added functionality.
+- Explore **[Tailwind CSS](/blog/tailwind-css)** integration for styling.
+- Deploy your app to **[Vercel](/blog/deploy-to-vercel)** or **[Netlify](/blog/deploy-to-netlify)**.
 
 Happy coding! 🚀
 
 export const metadata = {
   title: "Create a react app using vite",
   slug: "react-in-30-minutes",
-  date: "2024-02-01",
+  date: "2024-02-22",
   views: 1200,
   category: "Web Development",
-  tags: ["React", "JavaScript"],
-  image: "/images/nextjs.png",
+  tags: ["React", "Vite"],
 };

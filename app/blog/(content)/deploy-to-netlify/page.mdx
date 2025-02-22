@@ -1,0 +1,137 @@
+# How to Deploy on Netlify
+
+[Netlify](https://www.netlify.com/) is a popular platform that makes deploying modern web apps a breeze. It provides continuous deployment, a global CDN, and features like instant rollbacks. In this guide, we’ll walk through deploying your site to Netlify and troubleshooting common issues.
+
+## Prerequisites
+
+- A **Git** repository (e.g., GitHub, GitLab, Bitbucket)
+- A **Netlify** account (sign up at [netlify.com](https://www.netlify.com/))
+- A **build command** if your project requires it
+
+```sh
+npm run build
+```
+
+or
+
+```sh
+yarn build
+```
+
+- A **publish directory** (e.g., <ILH>build</ILH>, <ILH>dist</ILH>, <ILH>out</ILH>) if your project requires it
+
+```sh
+build/
+├── index.html
+├── main.js
+└── style.css
+```
+
+or
+
+```sh
+dist/
+├── index.html
+├── main.js
+└── style.css
+```
+
+## Step 1: Create a Netlify Account
+
+1. Go to [Netlify’s website](https://www.netlify.com/) and sign up using GitHub, GitLab, Bitbucket, or email.
+2. If using a Git provider, grant Netlify permission to access your repos.
+
+## Step 2: Connect Your Repository
+
+1. From your Netlify **dashboard**, click **“New site from Git”**.
+2. Choose your **Git provider**.
+3. Select the **repository** containing your project.
+
+&nbsp;
+**Potential Issue**
+
+- **“No Repos Found”**: Check if your repo is private and that Netlify has permission to access private repos.
+- **“Branch Not Found”**: Ensure the branch you want to deploy exists (like <ILH>main</ILH> or <ILH>master</ILH>).
+
+## Step 3: Configure Build Settings
+
+1. **Build Command**: This is the command Netlify will run to build your site (e.g., <ILH>npm run build</ILH>).
+2. **Publish Directory**: The folder containing your final build. Common examples:
+   - React: <ILH>build</ILH>
+   - Next.js (static export): <ILH>out</ILH>
+   - Vue CLI: <ILH>dist</ILH>
+3. Click **“Deploy site”** to start your first build.
+
+&nbsp;
+**Potential Issue**
+
+- **“Build command not found”**: Make sure you have a <ILH>build</ILH> script in your <ILH>package.json</ILH>.
+- **“Publish directory does not exist”**: Double-check you’ve specified the correct folder name.
+
+## Step 4: Automatic Deployments
+
+Once connected, every push to your main branch triggers a **new build** on Netlify.
+
+- **Deploy Previews**: Netlify creates unique preview URLs for pull requests, letting you test changes before merging.
+
+&nbsp;
+**Potential Issue**
+
+- **“Deploy Preview Not Found”**: Verify that your site is linked to the correct repo and branch.
+
+## Step 5: Custom Domain
+
+Netlify provides a **temporary subdomain** (e.g., <ILH>awesome-site-123.netlify.app</ILH>), but you can add a **custom domain**:
+
+1. Go to **Site Settings** → **Domain Management**.
+2. Add your domain and follow the **DNS instructions** to point your domain to Netlify.
+
+&nbsp;
+**Potential Issue**
+
+- **“DNS Verification Failed”**: Ensure you’ve added the correct **CNAME** or **A records** in your domain registrar.
+
+## Step 6: Environment Variables (Optional)
+
+If your project relies on secrets or API keys:
+
+1. Go to **Site Settings** → **Build & Deploy** → **Environment**.
+2. Add variables (e.g., <ILH>API_KEY</ILH>) there, so they’re available during the build process.
+
+&nbsp;
+**Potential Issue**
+
+- **Undefined Variables**: If you see a 404 or unexpected behavior, confirm the variable name in Netlify matches exactly what your code uses.
+
+## Step 7: Troubleshooting & Logs
+
+- **Build Logs**: Check Netlify’s deploy logs for details if something fails.
+- **Function Logs**: If using **Netlify Functions**, see logs in the Functions tab.
+- **Rollbacks**: Quickly revert to a previous successful deploy if the new one fails.
+
+## Conclusion
+
+Netlify streamlines deployment with an intuitive dashboard and CI/CD integration. Whether you’re using React, Vue, or a static site generator, the setup is straightforward:
+
+1. Connect your repo
+2. Configure your build command and publish directory
+3. Deploy automatically on every push
+
+If you encounter issues, use the Netlify logs and site settings to pinpoint and fix them. With this guide, you’re ready to deploy and maintain your app on Netlify with confidence!
+
+## Next Steps:
+
+- Learn about **[Vite Plugins](/blog/vite-plugins)** for added functionality.
+- Explore **[Tailwind CSS](/blog/tailwind-css)** integration for styling.
+- Learn about **[Deploying to Vercel](/blog/deploy-to-vercel)**.
+
+Happy coding! 🚀
+
+export const metadata = {
+  title: "How to Deploy on Netlify",
+  slug: "deploy-to-netlify",
+  date: "2025-02-22",
+  views: 1500,
+  category: "Web Development",
+  tags: ["Netlify", "Deployment", "Hosting"],
+};

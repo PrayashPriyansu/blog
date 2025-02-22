@@ -1,0 +1,148 @@
+# How to Deploy on Vercel
+
+[Vercel](https://vercel.com/) is a leading platform for hosting modern web apps, offering automatic builds, a global CDN, and serverless functions. This guide covers deploying your site to Vercel and troubleshooting common issues.
+
+---
+
+## Prerequisites
+
+- A **Git repository** (GitHub, GitLab, Bitbucket)
+- A [Vercel account](https://vercel.com/)
+- A **build command** (if required by your project):
+  ```sh
+  npm run build  # or yarn build, pnpm build, etc.
+  ```
+
+---
+
+## Step 1: Create a Vercel Account
+
+1. Sign up at [Vercel](https://vercel.com/) using GitHub, GitLab, Bitbucket, or email.
+2. Authorize Vercel to access your repositories if prompted.
+
+**Potential Issue**
+
+- **OAuth Scope Error**: Re-authorize Vercel in your Git provider’s security settings if permissions are outdated.
+
+---
+
+## Step 2: Connect Your Repository
+
+1. From the Vercel dashboard, click **New Project**.
+2. Select your Git provider and repository.
+3. Vercel auto-detects frameworks like Next.js, React, or SvelteKit.
+
+**Potential Issues**
+
+- **“No Projects Found”**: For private repos, ensure Vercel has access (check permissions in Git provider settings).
+- **Unsupported Framework**: Manually configure build settings if auto-detection fails.
+
+---
+
+## Step 3: Configure Build Settings
+
+1. **Build Command**: Specify your build script (e.g., <ILH>npm run build</ILH>).
+2. **Output Directory**: Set the folder containing built files:
+   - React/Vite: <ILH>dist</ILH>
+   - Next.js: <ILH>.next</ILH> (handled automatically)
+   - Angular: <ILH>dist/[project-name]</ILH>
+
+Example structure:
+
+```sh
+dist/
+├── index.html
+├── main.js
+└── style.css
+```
+
+**Potential Issues**
+
+- **“Command Not Found”**: Add the build script to <ILH>package.json</ILH>.
+- **“Output Directory Missing”**: Verify the build completes successfully before deploying.
+
+---
+
+## Step 4: Automatic Deployments
+
+Vercel deploys automatically on pushes to the linked branch.
+
+- **Preview Deployments**: Unique URLs for pull requests (enable in project settings).
+
+**Potential Issue**
+
+- **“Deployment Timed Out”**: Optimize build steps or upgrade for longer build limits (free tier: 45 mins).
+
+---
+
+## Step 5: Custom Domain
+
+1. In your project dashboard, go to **Settings → Domains**.
+2. Add your domain and configure DNS records (CNAME or A records).
+
+**Potential Issue**
+
+- **“Domain Not Verified”**: Wait up to 48 hours for DNS propagation or double-check records.
+
+---
+
+## Step 6: Environment Variables
+
+Add secrets in **Settings → Environment Variables**:
+
+- Use prefixes like <ILH>NEXT*PUBLIC*</ILH> for client-side exposure in Next.js.
+- Redeploy after adding/modifying variables.
+
+**Potential Issue**
+
+- **“Undefined Variables”**: Ensure variable names match exactly between code and Vercel settings.
+
+---
+
+## Step 7: Troubleshooting & Logs
+
+- **Build Logs**: Access detailed logs in the deployment overview.
+- **Serverless Functions**: Debug via the **Functions** tab in your project.
+- **SPA Routing**: Add a <ILH>vercel.json</ILH> file for redirects:
+  ```json
+  {
+    "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  }
+  ```
+
+---
+
+## Advanced Tips
+
+- **Vercel CLI**: Deploy from terminal with <ILH>npm i -g vercel</ILH> → <ILH>vercel deploy</ILH>
+- **Edge Config**: Use for dynamic configuration without redeploys
+- **Analytics**: Enable in **Settings → Analytics** for performance insights
+
+---
+
+## Conclusion
+
+Vercel simplifies deployment for modern frameworks:
+
+1. Connect your repository
+2. Configure build/output settings
+3. Automate deployments and previews
+
+For Next.js projects, Vercel offers zero-config optimizations like ISR and edge middleware.
+
+## Next Steps:
+
+- Learn about **[Vite Plugins](/blog/vite-plugins)** for added functionality.
+- Explore **[Tailwind CSS](/blog/tailwind-css)** integration for styling.
+- Learn about **[Deploying to Netlify](/blog/deploy-to-netlify)**.
+
+Happy coding! 🚀
+
+export const metadata = {
+  title: "How to Deploy on Vercel",
+  slug: "deploy-on-vercel",
+  date: "2023-10-17",
+  views: 1300,
+  category: "Web Development",
+  tags: ["Vercel", "Deployment", "Hosting"],
+};

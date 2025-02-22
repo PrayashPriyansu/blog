@@ -17,6 +17,7 @@ function Layout({ children }: { children: ReactElement }) {
         <ArrowLeftSquare className="w-5 h-5 stroke-1 " />
         Back
       </button>
+      {/* <span>Published on {new Date(date).toLocaleDateString()}</span> */}
 
       {/* Blog Content Wrapper */}
       <div
