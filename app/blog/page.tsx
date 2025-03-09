@@ -1,6 +1,6 @@
 import FilteredBlogs from "../_components/blog/FilteredBlogs";
-import TopBlogs from "../_components/blog/TopBlogs";
-import RecentBlogs from "../_components/blog/RecentBlogs";
+// import TopBlogs from "../_components/blog/TopBlogs";
+// import RecentBlogs from "../_components/blog/RecentBlogs";
 import BlogProvider from "../_context/BlogProvider";
 import { getBlogPosts } from "../_lib/blogs";
 
@@ -12,13 +12,13 @@ export default async function Page() {
   );
 
   return (
-    <div className="p-4">
+    <div className="p-4 flex flex-col grow">
       <BlogProvider value={sortedPosts}>
-        <div className="grid grid-col-1 lg:grid-col-2 gap-5">
+        <div className="grid grow grid-col-2 lg:grid-col-2 gap-5">
           <FilteredBlogs />
           <div className="flex flex-col gap-10 lg:col-start-2">
-            <TopBlogs />
-            <RecentBlogs />
+            {/* <TopBlogs /> */}
+            {/* <RecentBlogs /> */}
           </div>
         </div>
       </BlogProvider>

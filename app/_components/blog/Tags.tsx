@@ -6,11 +6,13 @@ interface TagsProps {
   tag: Tag;
   selectedTags: Tag[];
   setSelectedTags: (tag: Tag) => void;
+  type: "sort" | "filter";
 }
 
 export default function Tags({
   tag,
   selectedTags,
+  type,
   setSelectedTags,
 }: TagsProps) {
   // Use a unique property (e.g., name) to determine if the tag is selected
@@ -29,16 +31,18 @@ export default function Tags({
         )}
       >
         <span>{tag.name}</span>
-        <span
-          className={clsx(
-            "flex items-center transition duration-200 ease-in-out justify-center font-semibold rounded-full text-xs px-2 py-0.5",
-            isSelected
-              ? "bg-blue-950/80 text-white"
-              : "bg-blue-100 text-blue-800"
-          )}
-        >
-          {tag.numberOfPosts}
-        </span>
+        {type === "filter" && tag.numberOfPosts && (
+          <span
+            className={clsx(
+              "flex items-center transition duration-200 ease-in-out justify-center font-semibold rounded-full text-xs px-2 py-0.5",
+              isSelected
+                ? "bg-blue-950/80 text-white"
+                : "bg-blue-100 text-blue-800"
+            )}
+          >
+            {tag.numberOfPosts}
+          </span>
+        )}
       </button>
     </li>
   );

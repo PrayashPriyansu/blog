@@ -1,31 +1,24 @@
 import { BlogPost } from "@/app/_context/BlogProvider";
 import { format } from "date-fns";
-import { ExternalLink } from "lucide-react";
 import Link from "next/link";
 
 function BlogOverviewCard({ post }: { post: BlogPost }) {
   return (
-    <div
-      key={post.slug}
-      className="p-4 rounded-xl w-full flex flex-col gap-3 relative bg-card shadow-md border border-cardBorder text-cardText"
-    >
-      <h3 className=" font-semibold mt-1">{post.title}</h3>
+    <Link href={`/blog/${post.slug}`} className="group">
+      <div className="p-5 rounded-xl w-full flex flex-col gap-3 relative bg-card shadow-md border border-cardBorder text-cardText transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 hover:scale-y-105">
+        {/* Title */}
+        <h3 className="text-lg font-semibold leading-tight group-hover:text-primary transition duration-200 group-hover:underline">
+          {post.title}
+        </h3>
 
-      <div className="flex items-center">
-        <p className="text-xs text-gray-500">
-          {format(new Date(post.date), "d MMMM yyyy")}
-        </p>
-        <p className="flex-1"></p>
-        <p className="text-xs text-gray-500">{post.views} views</p>
+        {/* Metadata (Date & Views) */}
+        <div className="flex items-center justify-between text-sm text-gray-600">
+          <p>{format(new Date(post.date), "d MMMM yyyy")}</p>
+          <p>{post.views} views</p>
+        </div>
       </div>
-
-      <Link
-        href={`/blog/${post.slug}`}
-        className="top-1 right-2 hover:scale-105 active:scale-95 absolute"
-      >
-        <ExternalLink className="stroke-1" />
-      </Link>
-    </div>
+    </Link>
   );
 }
+
 export default BlogOverviewCard;

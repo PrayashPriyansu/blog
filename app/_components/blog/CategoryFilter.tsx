@@ -2,10 +2,16 @@ import { useBlogContext } from "@/app/_context/BlogProvider";
 import { Tag } from "./FilteredBlogs";
 import Tags from "./Tags";
 
+const sortTags = [{ name: "All" }, { name: "Recent" }, { name: "Popular" }];
+
 function CategoryFilter({
   selectedTags,
   setSelectedTags,
+  selectedCategory,
+  setSelectedCategory,
 }: {
+  selectedCategory: Tag[];
+  setSelectedCategory: (tag: Tag) => void;
   selectedTags: Tag[];
   setSelectedTags: (tag: Tag) => void;
 }) {
@@ -29,10 +35,27 @@ function CategoryFilter({
   return (
     <div className="text-lg row-span-2 col-span-2 font-semibold text-foreground/50 mb-2">
       <div>
+        <span className="text-foreground/50">Sort by Category</span>
+
+        <ul className="flex flex-wrap gap-2">
+          {sortTags.map((tag) => (
+            <Tags
+              key={tag.name}
+              tag={tag}
+              selectedTags={selectedCategory}
+              setSelectedTags={setSelectedCategory}
+              type="sort"
+            />
+          ))}
+        </ul>
+      </div>
+      <div>
+        <span className="text-foreground/50">Filter by Tags</span>
         <ul className="flex flex-wrap gap-2">
           {tags.map((tag) => (
             <Tags
               key={tag.name}
+              type="filter"
               tag={tag}
               selectedTags={selectedTags}
               setSelectedTags={setSelectedTags}
