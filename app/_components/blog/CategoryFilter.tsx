@@ -34,8 +34,8 @@ function CategoryFilter({
 
   return (
     <div className="text-lg row-span-2 col-span-2 font-semibold text-foreground/50 mb-2">
-      <div>
-        <span className="text-foreground/50">Sort by Category</span>
+      <div className="mb-2">
+        <div className="text-foreground/50 mb-1">Sort by Category</div>
 
         <ul className="flex flex-wrap gap-2">
           {sortTags.map((tag) => (
@@ -50,7 +50,7 @@ function CategoryFilter({
         </ul>
       </div>
       <div>
-        <span className="text-foreground/50">Filter by Tags</span>
+        <div className="text-foreground/50 mb-1">Filter by Tags</div>
         <ul className="flex flex-wrap gap-2">
           {tags.map((tag) => (
             <Tags
