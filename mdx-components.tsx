@@ -3,6 +3,8 @@ import React, { ComponentPropsWithoutRef } from "react";
 import CodeBlock from "./app/_components/contentComponents/CodeBlock";
 import ILH from "./app/_components/contentComponents/InLineHighlight";
 
+// Common utility types
+// type WithChildren<T = {}> = T & { children?: React.ReactNode };
 type HeadingProps = ComponentPropsWithoutRef<"h1">;
 type ParagraphProps = ComponentPropsWithoutRef<"p">;
 type ListProps = ComponentPropsWithoutRef<"ul">;
@@ -11,54 +13,51 @@ type AnchorProps = ComponentPropsWithoutRef<"a">;
 type BlockquoteProps = ComponentPropsWithoutRef<"blockquote">;
 type CodeProps = ComponentPropsWithoutRef<"code">;
 
+const baseText =
+  "break-words whitespace-pre-wrap text-gray-800 dark:text-gray-200";
+
 const components = {
   h1: (props: HeadingProps) => (
     <h1
-      className="text-gray-900 dark:text-gray-100 font-bold text-3xl pt-12 mb-4 fade-in"
+      className="text-3xl font-bold pt-12 mb-4 text-gray-900 dark:text-gray-100 fade-in"
       {...props}
     />
   ),
   h2: (props: HeadingProps) => (
     <h2
-      className="text-gray-900 dark:text-gray-100 font-semibold text-2xl mt-8 mb-4"
+      className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100"
       {...props}
     />
   ),
   h3: (props: HeadingProps) => (
     <h3
-      className="text-gray-900 dark:text-gray-100 font-medium text-xl mt-6 mb-3"
+      className="text-xl font-medium mt-6 mb-3 text-gray-900 dark:text-gray-100"
       {...props}
     />
   ),
   h4: (props: HeadingProps) => (
-    <h4 className="font-medium text-lg mt-5 mb-2" {...props} />
+    <h4
+      className="text-lg font-medium mt-5 mb-2 text-gray-900 dark:text-gray-100"
+      {...props}
+    />
   ),
+
   p: (props: ParagraphProps) => (
-    <p
-      className="text-gray-800 dark:text-gray-200 leading-relaxed break-words whitespace-pre-wrap"
-      {...props}
-    />
+    <p className={`leading-relaxed ${baseText}`} {...props} />
   ),
+
   ol: (props: ListProps) => (
-    <ol
-      className="text-gray-800 dark:text-gray-200 list-decimal pl-6  break-words whitespace-pre-wrap"
-      {...props}
-    />
+    <ol className={`list-decimal pl-6 space-y-1 ${baseText}`} {...props} />
   ),
   ul: (props: ListProps) => (
-    <ul
-      className="text-gray-800 dark:text-gray-200 list-disc pl-6 space-y-2 break-words whitespace-pre-wrap"
-      {...props}
-    />
+    <ul className={`list-disc pl-6 space-y-2 ${baseText}`} {...props} />
   ),
   li: (props: ListItemProps) => (
-    <li className="pl-1 break-words whitespace-pre-wrap" {...props} />
+    <li className={`pl-1 ${baseText}`} {...props} />
   ),
+
   em: (props: ComponentPropsWithoutRef<"em">) => (
-    <em
-      className="italic font-medium break-words whitespace-pre-wrap"
-      {...props}
-    />
+    <em className="italic font-medium" {...props} />
   ),
   strong: (props: ComponentPropsWithoutRef<"strong">) => (
     <strong
@@ -66,8 +65,10 @@ const components = {
       {...props}
     />
   ),
+
   a: ({ href, children, ...props }: AnchorProps) => {
-    const className = "text-blue-500 hover:text-blue-700 transition";
+    const className =
+      "text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 underline underline-offset-2 transition";
     if (href?.startsWith("/")) {
       return (
         <Link href={href} className={className} {...props}>
@@ -96,14 +97,21 @@ const components = {
   },
 
   blockquote: (props: BlockquoteProps) => (
-    <blockquote className="ml-4 flex items-center justify-center border-l-4 border-gray-500  italic text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 p-3 pl-4 rounded-md">
+    <blockquote className="ml-4 border-l-4 border-gray-500 italic bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 p-3 pl-4 rounded-md">
       {props.children}
     </blockquote>
   ),
+
   code: ({ children, className, ...props }: CodeProps) => {
     const match = className?.match(/language-(\w+)/);
     const language = match ? match[1] : undefined;
-    return <CodeBlock code={String(children)} language={language} {...props} />;
+    return (
+      <CodeBlock
+        code={String(children).trim()}
+        language={language}
+        {...props}
+      />
+    );
   },
 
   ILH: ({
@@ -122,30 +130,24 @@ const components = {
 
   Table: ({ data }: { data: { headers: string[]; rows: string[][] } }) => (
     <div className="overflow-x-auto">
-      <table className="w-full border-collapse border border-gray-300 dark:border-gray-700">
+      <table className="w-full border-collapse border border-gray-300 dark:border-gray-700 text-sm">
         <thead className="bg-gray-200 dark:bg-gray-700">
           <tr>
-            {data.headers.map((header, index) => (
-              <th
-                key={index}
-                className="border border-gray-300 dark:border-gray-600 p-2 text-left"
-              >
+            {data.headers.map((header, i) => (
+              <th key={i} className="border p-2 text-left dark:border-gray-600">
                 {header}
               </th>
             ))}
           </tr>
         </thead>
         <tbody>
-          {data.rows.map((row, index) => (
+          {data.rows.map((row, rowIndex) => (
             <tr
-              key={index}
+              key={rowIndex}
               className="hover:bg-gray-100 dark:hover:bg-gray-800"
             >
               {row.map((cell, cellIndex) => (
-                <td
-                  key={cellIndex}
-                  className="border border-gray-300 dark:border-gray-600 p-2"
-                >
+                <td key={cellIndex} className="border p-2 dark:border-gray-600">
                   {cell}
                 </td>
               ))}
@@ -162,7 +164,7 @@ declare global {
 }
 
 export function useMDXComponents(
-  otherComponents: MDXProvidedComponents
+  custom: Partial<MDXProvidedComponents>
 ): MDXProvidedComponents {
-  return { ...components, ...otherComponents };
+  return { ...components, ...custom };
 }

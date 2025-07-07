@@ -1,6 +1,6 @@
 "use client";
 
-import { Clipboard } from "lucide-react";
+import { Clipboard, Check } from "lucide-react";
 import { useState } from "react";
 import ShikiHighlighter from "react-shiki";
 
@@ -9,47 +9,61 @@ interface CodeBlockProps {
   language?: string;
 }
 
-function CodeBlock({ code, language, ...props }: CodeBlockProps) {
+function CodeBlock({ code, language = "javascript" }: CodeBlockProps) {
   const [copied, setCopied] = useState(false);
 
-  async function handleCopy() {
+  const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(code);
+      await navigator.clipboard.writeText(code.trim());
       setCopied(true);
-      setTimeout(() => setCopied(false), 1000); // Reset after 2s
+      setTimeout(() => setCopied(false), 1500);
     } catch (err) {
-      console.error("Failed to copy text:", err);
+      console.error("Copy failed:", err);
     }
-  }
+  };
 
   return (
-    <div className="relative">
-      <ShikiHighlighter
-        language={language || "javascript"}
-        className="code-block"
-        theme="ayu-dark"
-        showLanguage={false}
-        addDefaultStyles={true}
-        as="div"
-        style={{
-          textAlign: "left",
-        }}
-        {...props}
-      >
-        {code.trim()}
-      </ShikiHighlighter>
-      <div className="absolute right-2 top-1/2 -translate-y-1/2  flex items-center">
+    <div className="relative rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-950 shadow-md overflow-hidden group">
+      {/* Header */}
+      <div className="flex items-center justify-between px-4 py-2 text-xs font-medium bg-gray-100 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300">
+        <span className="uppercase tracking-wide">{language}</span>
         <button
           onClick={handleCopy}
-          className="flex items-center gap-1 px-2 py-1 text-xs font-medium text-stone-200  duration-200 rounded-md shadow-sm hover:bg-gray-100 hover:text-gray-700 transition"
+          aria-label="Copy code"
+          className="flex items-center gap-1 px-2 py-1 bg-gray-800 text-gray-100 rounded-md hover:bg-gray-700 transition"
         >
-          {copied ? "Copied!" : ""}
-          <Clipboard className="w-4 h-4" />
+          {copied ? (
+            <>
+              <Check className="w-4 h-4 text-green-400" />
+              Copied
+            </>
+          ) : (
+            <>
+              <Clipboard className="w-4 h-4" />
+              Copy
+            </>
+          )}
         </button>
+      </div>
+
+      {/* Highlighted Code */}
+      <div className="overflow-x-auto">
+        <ShikiHighlighter
+          language={language}
+          theme="ayu-dark"
+          showLanguage={false} // We show it in header instead
+          addDefaultStyles
+          as="div"
+          className="text-sm font-mono p-4 min-w-full"
+          style={{ textAlign: "left" }}
+        >
+          {code.trim()}
+        </ShikiHighlighter>
       </div>
     </div>
   );
 }
+
 export default CodeBlock;
 
 // "use client";

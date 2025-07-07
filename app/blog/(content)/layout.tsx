@@ -23,7 +23,7 @@ function Layout({ children }: { children: ReactElement }) {
       <div
         className="mt-6 border border-zinc-800  text-black dark:text-zinc-200 rounded-lg p-2 sm:p-6 bg-white dark:bg-zinc-900
       text-pretty break-words whitespace-normal
-      shadow-md"
+      shadow-md flex flex-col gap-2"
       >
         {children}
       </div>
