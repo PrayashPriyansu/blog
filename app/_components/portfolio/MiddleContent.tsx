@@ -1,7 +1,7 @@
 "use client";
 
-import { FileText, ArrowRight, Code, Briefcase } from "lucide-react";
-import { motion } from "framer-motion";
+import { FileText, ArrowRight, Code } from "lucide-react";
+import { easeOut, motion } from "motion/react";
 
 const cardVariants = {
   hidden: { opacity: 0, scale: 0.8, y: 20 },
@@ -11,7 +11,7 @@ const cardVariants = {
     y: 0,
     transition: {
       duration: 0.6,
-      ease: "easeOut",
+      ease: easeOut,
     },
   },
 };
@@ -34,7 +34,9 @@ function ResumeSection() {
       >
         <FileText className="text-2xl text-white" size={24} />
       </motion.div>
-      <h2 className="text-lg font-bold text-emerald-700 dark:text-emerald-300 mb-2">Resume</h2>
+      <h2 className="text-lg font-bold text-emerald-700 dark:text-emerald-300 mb-2">
+        Resume
+      </h2>
       <motion.button
         onClick={() => window.open("/resume.pdf", "_blank")}
         className="flex items-center gap-2 px-4 py-2 text-white bg-gradient-to-r from-emerald-600 to-teal-600 text-sm rounded-full hover:from-emerald-700 hover:to-teal-700 transition-all duration-300 shadow-md"
@@ -65,7 +67,9 @@ function ProjectsSection() {
       >
         <Code className="text-2xl text-white" size={24} />
       </motion.div>
-      <h2 className="text-lg font-bold text-blue-700 dark:text-blue-300 mb-2">Projects</h2>
+      <h2 className="text-lg font-bold text-blue-700 dark:text-blue-300 mb-2">
+        Projects
+      </h2>
       <motion.button
         className="flex items-center gap-2 px-4 py-2 text-white bg-gradient-to-r from-blue-600 to-indigo-600 text-sm rounded-full hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-md"
         whileHover={{ scale: 1.05 }}

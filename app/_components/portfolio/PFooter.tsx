@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { easeOut, motion } from "motion/react";
 
 const textVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -9,7 +9,7 @@ const textVariants = {
     y: 0,
     transition: {
       duration: 1,
-      ease: "easeOut",
+      ease: easeOut,
     },
   },
 };
@@ -39,10 +39,7 @@ function PFooter() {
         }}
       />
 
-      <motion.div
-        className="text-center z-10"
-        variants={textVariants}
-      >
+      <motion.div className="text-center z-10" variants={textVariants}>
         <motion.h1
           className="font-orbi text-4xl md:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent mb-8"
           whileHover={{ scale: 1.05 }}
@@ -50,14 +47,14 @@ function PFooter() {
         >
           Prayash Priyansu Beura
         </motion.h1>
-        
+
         <motion.p
           className="text-xl md:text-2xl text-slate-300 mb-8 max-w-2xl mx-auto"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.8 }}
         >
-          Let's build something amazing together
+          {"Let's"} build something amazing together
         </motion.p>
 
         <motion.div
@@ -76,7 +73,7 @@ function PFooter() {
           >
             Get In Touch
           </motion.button>
-          
+
           <motion.button
             className="px-8 py-4 border-2 border-white/30 text-white rounded-full font-semibold text-lg hover:bg-white/10 transition-all duration-300"
             whileHover={{ scale: 1.05 }}

@@ -1,7 +1,7 @@
 "use client";
 
-import { ArrowDown, Briefcase, Sparkles } from "lucide-react";
-import { motion } from "framer-motion";
+import { ArrowDown, Briefcase } from "lucide-react";
+import { easeOut, motion } from "motion/react";
 import SocialsBento from "./SocialsBento";
 
 const itemVariants = {
@@ -11,7 +11,7 @@ const itemVariants = {
     x: 0,
     transition: {
       duration: 0.6,
-      ease: "easeOut",
+      ease: easeOut,
     },
   },
 };
@@ -83,10 +83,8 @@ function SideContent() {
         }}
         whileTap={{ scale: 0.95 }}
       >
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        />
-        
+        <motion.div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
         <motion.span
           className="relative z-10 text-lg font-bold"
           whileHover={{ scale: 1.05 }}

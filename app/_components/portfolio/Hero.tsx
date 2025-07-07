@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import HelloCard from "./HelloCard";
 import MainContent from "./MainContent";
 import MiddleContent from "./MiddleContent";
@@ -18,47 +18,37 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 20, scale: 0.95 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: {
-      duration: 0.6,
-      ease: [0.25, 0.46, 0.45, 0.94],
-    },
-  },
-};
+// const itemVariants = {
+//   hidden: { opacity: 0, y: 20, scale: 0.95 },
+//   visible: {
+//     opacity: 1,
+//     y: 0,
+//     scale: 1,
+//     transition: {
+//       duration: 0.6,
+//       ease: [0.25, 0.46, 0.45, 0.94] as const,
+//     },
+//   },
+// };
 
 function Hero() {
   return (
-    <div className="pt-20 min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-slate-800 dark:to-indigo-900">
+    <div className="pt-20 min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-slate-800 dark:to-indigo-900 flex flex-col">
       <motion.div
         className="container grid md:grid-cols-12 grid-cols-6 gap-4 mx-auto px-4 text-slate-800 dark:text-slate-200"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <motion.div variants={itemVariants}>
-          <HelloCard />
-        </motion.div>
-        
-        <motion.div variants={itemVariants}>
-          <MiddleContent />
-        </motion.div>
-        
-        <motion.div variants={itemVariants}>
-          <SideContent />
-        </motion.div>
-        
-        <motion.div variants={itemVariants}>
-          <MainContent />
-        </motion.div>
-        
-        <motion.div variants={itemVariants}>
-          <SkillsSection />
-        </motion.div>
+        <HelloCard />
+
+        <MiddleContent />
+
+        <SideContent />
+
+        <MainContent />
+
+        <SkillsSection />
       </motion.div>
     </div>
   );

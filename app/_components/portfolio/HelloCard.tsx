@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { motion } from "framer-motion";
+import { easeOut, motion } from "motion/react";
 import animationData from "@/public/animations/Animation - 1738998049750.json";
 
 const Lottie = dynamic(() => import("lottie-react"), {
@@ -16,7 +16,7 @@ const textVariants = {
     transition: {
       duration: 0.8,
       delay: 0.5,
-      ease: "easeOut",
+      ease: easeOut,
     },
   },
 };
@@ -43,7 +43,7 @@ function HelloCard() {
       >
         <Lottie animationData={animationData} className="size-40" />
       </motion.div>
-      
+
       <motion.div
         variants={textVariants}
         initial="hidden"

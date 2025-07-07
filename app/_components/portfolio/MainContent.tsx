@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { easeInOut, easeOut, motion } from "motion/react";
 
 const textVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -9,7 +9,7 @@ const textVariants = {
     y: 0,
     transition: {
       duration: 0.8,
-      ease: "easeOut",
+      ease: easeOut,
     },
   },
 };
@@ -21,7 +21,7 @@ const highlightVariants = {
     transition: {
       duration: 1,
       delay: 0.5,
-      ease: "easeInOut",
+      ease: easeInOut,
     },
   },
 };
@@ -64,7 +64,7 @@ function MainContent() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.3 }}
       >
-        I'm an aspiring web developer passionate about creating meaningful,
+        I&#39;m an aspiring web developer passionate about creating meaningful,
         intuitive, and engaging user interfaces that drive real-world impact.
         With experience in frontend technologies like React and Tailwind CSS, I
         aim to solve complex problems with clean, maintainable code.
@@ -86,7 +86,7 @@ function MainContent() {
         >
           View My Work
         </motion.button>
-        
+
         <motion.button
           className="px-6 py-3 border-2 border-indigo-600 text-indigo-600 dark:text-indigo-400 dark:border-indigo-400 rounded-full font-semibold hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-400 dark:hover:text-slate-900 transition-all duration-300"
           whileHover={{ scale: 1.05 }}
